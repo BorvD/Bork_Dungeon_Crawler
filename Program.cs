@@ -22,7 +22,8 @@ namespace Bork_Dungeon_Crawler
     {
 
         static void Main(string[] args)
-        { 
+        {
+            // Start the main menu
             MainMenu menu = new MainMenu();
             menu.mainMenu();
         }

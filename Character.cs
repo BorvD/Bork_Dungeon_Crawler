@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bork_Dungeon_Crawler
 {
+    // Character class to store user information
     internal class Character
-    {        
+    {
+        // Properties for username, password, contact info, and pending 2FA code
         public string Username { get; set; } = "";
         public string Password { get; set; } = "";
         public string Contact { get; set; } = "";
