@@ -12,7 +12,7 @@ namespace Bork_Dungeon_Crawler.Rooms
         {
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("This chamber smells of mildew and rust. A broken spear rests against the wall, its tip long gone.");
+            Console.WriteLine("The room beyond is small and cramped — shelves line the walls, stacked with broken plates and moldy bread.");
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.WriteLine("What do you do?");

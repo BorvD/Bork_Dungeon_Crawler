@@ -12,8 +12,34 @@ namespace Bork_Dungeon_Crawler.Rooms
         {
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("Console.WriteLine(\"The room beyond is small and cramped — shelves line the walls, stacked with broken plates and moldy bread.\");");
+            Console.WriteLine("This chamber smells of mildew and rust. A broken spear rests against the wall, its tip long gone.");
             Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine("What do you do?");
+            Console.WriteLine("1. Go South.");
+            Console.WriteLine("2. Go North.");
+            string input = Console.ReadLine();
+
+            while (true)
+            {
+                if (input == "1")
+                {
+                    Room_01_14 room_01_14 = new Room_01_14();
+                    room_01_14.room_01_14();
+                    break;
+                }
+                else if (input == "2")
+                {
+                    Room_01_08 room_01_08 = new Room_01_08();
+                    room_01_08.room_01_08();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Can not be done!");
+                    return;
+                }
+            }
         }
     }
 }

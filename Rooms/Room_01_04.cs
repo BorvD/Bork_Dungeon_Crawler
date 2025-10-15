@@ -25,14 +25,14 @@ namespace Bork_Dungeon_Crawler.Rooms
             {
                 if (input == "1")
                 {
-                    Room_01_01 room_01_01 = new Room_01_01();
-                    room_01_01.room_01_01();
+                    Room_01_05 room_01_05 = new Room_01_05();
+                    room_01_05.room_01_05();
                     break;
                 }
                 else if (input == "2")
                 {
-                    Room_01_05 room_01_05 = new Room_01_05();
-                    room_01_05.room_01_05();
+                    Room_01_01 room_01_01 = new Room_01_01();
+                    room_01_01.room_01_01();
                     break;
                 }
                 else

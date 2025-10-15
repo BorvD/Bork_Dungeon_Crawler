@@ -67,8 +67,8 @@ namespace Bork_Dungeon_Crawler.Rooms
                 {
                     // Sneaking sequence would go here
                     Console.WriteLine("You run away back from where you came");
-                    Room_01_02 room_01_02 = new Room_01_02();
-                    room_01_02.room_01_02();
+                    Room_01_09 room_01_09 = new Room_01_09();
+                    room_01_09.room_01_09();
                     break;
                 }
                 else if (input == "3")
