@@ -24,8 +24,12 @@ namespace Bork_Dungeon_Crawler
         static void Main(string[] args)
         {
             // Start the main menu
-            MainMenu menu = new MainMenu();
-            menu.mainMenu();
+            //MainMenu menu = new MainMenu();
+            //menu.mainMenu();
+
+            // Test room
+            Room_01_00 room0100 = new Room_01_00();
+            room0100.room_01_00();
         }
     }
 }
