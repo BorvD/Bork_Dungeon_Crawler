@@ -34,12 +34,12 @@ namespace Bork_Dungeon_Crawler
                     // Handle registration
                     case "1":
                         // Call CreateCharacter method to register a new character
-                        character = register.CreateCharacter();
+                        character = register.createCharacter();
                         break;
                     // Handle login
                     case "2":
                         // Call SignIn method to log in with the registered character
-                        login.SignIn(character);
+                        login.signIn(character);
                         break;
                     // Handle exit
                     case "3":

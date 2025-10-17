@@ -8,9 +8,9 @@ namespace Bork_Dungeon_Crawler.Rooms
 {
     public class Room_01_02 : BaseRoom
     {
-        public override void EnterRoom()
+        public override void enterRoom()
         {
-            turnManager.CheckTurn(() => EnterRoom());
+            turnManager.checkTurn(() => enterRoom());
 
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -30,16 +30,16 @@ namespace Bork_Dungeon_Crawler.Rooms
                 {
                     // Move East → Room_01_01
                     Room_01_01 nextRoom = new Room_01_01();
-                    nextRoom.Initialize(player, turnManager);
-                    nextRoom.EnterRoom();
+                    nextRoom.initialize(player, turnManager);
+                    nextRoom.enterRoom();
                     break;
                 }
                 else if (input == "2")
                 {
                     // Move West → Room_01_03
                     Room_01_03 nextRoom = new Room_01_03();
-                    nextRoom.Initialize(player, turnManager);
-                    nextRoom.EnterRoom();
+                    nextRoom.initialize(player, turnManager);
+                    nextRoom.enterRoom();
                     break;
                 }
                 else

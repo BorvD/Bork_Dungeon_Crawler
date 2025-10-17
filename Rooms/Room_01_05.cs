@@ -8,7 +8,7 @@ namespace Bork_Dungeon_Crawler.Rooms
 {
     public class Room_01_05 : BaseRoom
     {
-        public override void EnterRoom()
+        public override void enterRoom()
         {
             
 
@@ -52,8 +52,8 @@ namespace Bork_Dungeon_Crawler.Rooms
                 {
                     Console.WriteLine("You run away back from where you came.");
                     Room_01_04 room_01_04 = new Room_01_04();
-                    room_01_04.Initialize(player, turnManager);
-                    room_01_04.EnterRoom();
+                    room_01_04.initialize(player, turnManager);
+                    room_01_04.enterRoom();
                     break;
                 }
                 else if (input == "3")

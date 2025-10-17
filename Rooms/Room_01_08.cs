@@ -8,9 +8,9 @@ namespace Bork_Dungeon_Crawler.Rooms
 {
     internal class Room_01_08 : BaseRoom
     {
-        public override void EnterRoom()
+        public override void enterRoom()
         {
-            turnManager.CheckTurn(() => EnterRoom());
+            turnManager.checkTurn(() => enterRoom());
 
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -41,29 +41,29 @@ namespace Bork_Dungeon_Crawler.Rooms
                 if (input == "1")
                 {
                     Room_01_13 room_01_13 = new Room_01_13();
-                    room_01_13.Initialize(player, turnManager);
-                    room_01_13.EnterRoom();
+                    room_01_13.initialize(player, turnManager);
+                    room_01_13.enterRoom();
                     break;
                 }
                 else if (input == "2")
                 {
                     Room_01_07 room_01_07 = new Room_01_07();
-                    room_01_07.Initialize(player, turnManager);
-                    room_01_07.EnterRoom();
+                    room_01_07.initialize(player, turnManager);
+                    room_01_07.enterRoom();
                     break;
                 }
                 else if (input == "3")
                 {
                     Room_01_11 room_01_11 = new Room_01_11();
-                    room_01_11.Initialize(player, turnManager);
-                    room_01_11.EnterRoom();
+                    room_01_11.initialize(player, turnManager);
+                    room_01_11.enterRoom();
                     break;
                 }
                 else if (input == "4")
                 {
                     Room_01_09 room_01_09 = new Room_01_09();
-                    room_01_09.Initialize(player, turnManager);
-                    room_01_09.EnterRoom();
+                    room_01_09.initialize(player, turnManager);
+                    room_01_09.enterRoom();
                     break;
                 }
                 else if (input == "5")

@@ -9,7 +9,7 @@ namespace Bork_Dungeon_Crawler
     internal class Register
     {
         // Method to create a new character with validation
-        public Character CreateCharacter()
+        public Character createCharacter()
         {
             // Asks for character name
             Console.Write("Enter character name: ");
@@ -22,7 +22,7 @@ namespace Bork_Dungeon_Crawler
             string password = Console.ReadLine() ?? "";
 
             // Validate password strength
-            if (!ValidatePassword(password, out string reason))
+            if (!validatePassword(password, out string reason))
             {
                 // Print reason for weak password
                 Console.WriteLine($"Weak password: {reason}");
@@ -50,7 +50,7 @@ namespace Bork_Dungeon_Crawler
         }
 
         // Method to validate password strength
-        private bool ValidatePassword(string password, out string reason)
+        private bool validatePassword(string password, out string reason)
         {
             // Initialize reason as empty
             reason = "";

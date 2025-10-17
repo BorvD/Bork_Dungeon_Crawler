@@ -6,10 +6,10 @@ using System.Numerics;
 public class Room_01_01 : BaseRoom
 {
     // Skriver över EnterRoom-metoden för detta specifika rum
-    public override void EnterRoom()
+    public override void enterRoom()
     {
-        // Anropar TurnManager för att kolla om wandering monster skall triggas
-        turnManager.CheckTurn(() => EnterRoom());
+        // Anropar TurnManager för att kolla om wandering monster skall triggas (Använder Action och Invoke för att hitta rätt)
+        turnManager.checkTurn(() => enterRoom());
 
         // Rummets beskrivning
         Console.WriteLine("------------------------------------------------------");
@@ -44,8 +44,8 @@ public class Room_01_01 : BaseRoom
             if (input == "1")
             {
                 Room_01_06 room0106 = new Room_01_06();
-                room0106.Initialize(player, turnManager);
-                room0106.EnterRoom();
+                room0106.initialize(player, turnManager);
+                room0106.enterRoom();
                 break;
             }
             else if (input == "2")
@@ -58,16 +58,16 @@ public class Room_01_01 : BaseRoom
             {
 
                 Room_01_04 room0104 = new Room_01_04();
-                room0104.Initialize(player, turnManager);
-                room0104.EnterRoom();
+                room0104.initialize(player, turnManager);
+                room0104.enterRoom();
                 break;
             }
             else if (input == "4")
             {
 
                 Room_01_02 room0102 = new Room_01_02();
-                room0102.Initialize(player, turnManager);
-                room0102.EnterRoom();
+                room0102.initialize(player, turnManager);
+                room0102.enterRoom();
                 break;
             }
             else if (input == "5")

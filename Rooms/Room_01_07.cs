@@ -9,10 +9,10 @@ namespace Bork_Dungeon_Crawler.Rooms
 {
     internal class Room_01_07 : BaseRoom
     {
-        public override void EnterRoom()
+        public override void enterRoom()
         {
             // Optional — safety check in case something didn't initialize
-            turnManager.CheckTurn(() => EnterRoom());
+            turnManager.checkTurn(() => enterRoom());
 
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -30,15 +30,15 @@ namespace Bork_Dungeon_Crawler.Rooms
                 if (input == "1")
                 {
                     Room_01_08 room_01_08 = new Room_01_08();
-                    room_01_08.Initialize(player, turnManager);
-                    room_01_08.EnterRoom();  // ✅ use EnterRoom()
+                    room_01_08.initialize(player, turnManager);
+                    room_01_08.enterRoom();  // ✅ use EnterRoom()
                     break;
                 }
                 else if (input == "2")
                 {
                     Room_01_06 room_01_06 = new Room_01_06();
-                    room_01_06.Initialize(player, turnManager);
-                    room_01_06.EnterRoom();  // ✅ use EnterRoom()
+                    room_01_06.initialize(player, turnManager);
+                    room_01_06.enterRoom();  // ✅ use EnterRoom()
                     break;
                 }
                 else

@@ -35,13 +35,13 @@ namespace Bork_Dungeon_Crawler
             Console.Write("Enter your hero's name: ");
             string name = Console.ReadLine();
             Console.Write("Enter your starting power level (e.g., 5): ");
-            int powerLevel = int.Parse(Console.ReadLine());
+            int powerLevel = Convert.ToInt32(Console.ReadLine());
             TestCharacter player = new TestCharacter(name, powerLevel);
             WanderingMonster wanderingMonster = new WanderingMonster();
             TurnManager turnManager = new TurnManager(player, wanderingMonster);
             Room_01_00 startRoom = new Room_01_00();
-            startRoom.Initialize(player, turnManager);
-            startRoom.EnterRoom();
+            startRoom.initialize(player, turnManager);
+            startRoom.enterRoom();
         }
     }
 }

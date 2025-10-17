@@ -22,10 +22,10 @@ namespace Bork_Dungeon_Crawler.Monsters
         }
 
         // Metod för att kolla om en vandrande monster-encounter ska triggas baserat på spelarens turn counter. (Action) sparar metoden som hände innan och Invoke gör att metoden (rummet) spelas upp efteråt§
-        public void CheckTurn(Action resumeRoom)
+        public void checkTurn(Action resumeRoom)
         {
             // Anropar spelarens EnterRoom-metod för att öka tur-räknaren
-            player.EnterRoom();
+            player.enterRoom();
 
             // Beräknar den sista siffran i spelarens tur-räknare
             char lastDigitChar = player.TurnCounter.ToString().Last();
@@ -40,7 +40,7 @@ namespace Bork_Dungeon_Crawler.Monsters
                 Console.ForegroundColor = ConsoleColor.White;
 
                 // Anropar StartEncounter-metoden på wanderingMonster för att starta en emcounter
-                wanderingMonster.StartEncounter();
+                wanderingMonster.startEncounter();
 
                 // Meddelande För att vissa att striden är över och återuppta rummet
                 Console.WriteLine("You catch your breath after the battle...");

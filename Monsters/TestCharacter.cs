@@ -25,7 +25,7 @@ namespace Bork_Dungeon_Crawler.Monsters
         }
 
         // Metod that is called on when the player enters a new room
-        public void EnterRoom()
+        public void enterRoom()
         {
             // When the player enters a new room the count goes up by 1
             TurnCounter++;

@@ -5,10 +5,10 @@ using System.Numerics;
 
 public class Room_01_00 : BaseRoom
 {
-    public override void EnterRoom()
+    public override void enterRoom()
     {
 
-        turnManager.CheckTurn(() => EnterRoom());
+        turnManager.checkTurn(() => enterRoom());
 
         Console.Clear();
         Console.WriteLine("------------------------------------------------------");
@@ -38,8 +38,8 @@ public class Room_01_00 : BaseRoom
             if (input == "1")
             {
                 Room_01_01 room0101 = new Room_01_01();
-                room0101.Initialize(player, turnManager);
-                room0101.EnterRoom();
+                room0101.initialize(player, turnManager);
+                room0101.enterRoom();
                 break;
             }
             else if (input == "2")

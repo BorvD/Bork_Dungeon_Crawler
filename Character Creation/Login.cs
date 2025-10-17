@@ -10,7 +10,7 @@ namespace Bork_Dungeon_Crawler
     internal class Login
     {
         // Method to handle user sign-in with 2FA
-        public void SignIn(Character character)
+        public void signIn(Character character)
         {
             // if statement to check if character is null
             if (character == null)
@@ -39,7 +39,7 @@ namespace Bork_Dungeon_Crawler
             }
 
             // Generate 2FA code
-            character.Pending2FACode = Generate2FACode();
+            character.Pending2FACode = generate2FACode();
 
             // Simulate sending 2FA code to contact
             Console.WriteLine($"(2FA code sent to {character.Contact})");
@@ -67,7 +67,7 @@ namespace Bork_Dungeon_Crawler
         }
 
         // Method to generate a random 2FA code
-        private string Generate2FACode()
+        private string generate2FACode()
         {
             // Generate a random 6-digit code
             var rnd = new Random();

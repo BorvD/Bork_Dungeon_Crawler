@@ -11,16 +11,17 @@ namespace Bork_Dungeon_Crawler.Monsters
         // List of possible monsters with their descriptions and power levels from the Monster class
         private List<(string Name, string Description, int Power)> monsters = new List<(string, string, int)>
         {
-            ("Zombie", "Small, sneaky, and sharp-toothed.", 2),
+            ("Zombie", "One of the living dead.", 2),
             ("Specter", "Ghostly and draining.", 3),
             ("Imp", "Mischievous fire demon.", 1),
          };
 
         // Method to start a random encounter
-        public void StartEncounter()
+        public void startEncounter()
         {
             // Select a random monster
             Random rnd = new Random();
+            // Create a random number generator within the method to pick a random monster from the list above
             var monster = monsters[rnd.Next(monsters.Count)];
 
             // Display encounter message
