@@ -6,39 +6,47 @@ using System.Threading.Tasks;
 
 namespace Bork_Dungeon_Crawler.Rooms
 {
-    internal class Room_01_09
+    internal class Room_01_09 : BaseRoom
     {
-        public void room_01_09()
+        public override void EnterRoom()
         {
+            turnManager?.CheckTurn(() => EnterRoom());
+
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("You step into a narrow storage alcove. A few shattered jars leak a dark, sticky residue across the floor.");
             Console.ForegroundColor = ConsoleColor.White;
 
-            Console.WriteLine("What do you do?");
-            Console.WriteLine("1. Go East.");
-            Console.WriteLine("2. Go West.");
-            string input = Console.ReadLine();
-
             while (true)
             {
+                Console.WriteLine();
+                Console.WriteLine("What do you do?");
+                Console.WriteLine("1. Go East.");
+                Console.WriteLine("2. Go West.");
+
+                string input = Console.ReadLine();
+
                 if (input == "1")
                 {
                     Room_01_08 room_01_08 = new Room_01_08();
-                    room_01_08.room_01_08();
+                    room_01_08.Initialize(player, turnManager);
+                    room_01_08.EnterRoom();
+                    break;
                 }
                 else if (input == "2")
                 {
                     Room_01_10 room_01_10 = new Room_01_10();
-                    room_01_10.room_01_10();
+                    room_01_10.Initialize(player, turnManager);
+                    room_01_10.EnterRoom();
+                    break;
                 }
                 else
                 {
                     Console.WriteLine("Can not be done!");
-                    return;
                 }
             }
-
         }
     }
+
+
 }

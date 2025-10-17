@@ -6,36 +6,45 @@ using System.Threading.Tasks;
 
 namespace Bork_Dungeon_Crawler.Rooms
 {
-    internal class Room_01_02
+    public class Room_01_02 : BaseRoom
     {
-        public void room_01_02()
+        public override void EnterRoom()
         {
+            turnManager.CheckTurn(() => EnterRoom());
+
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("The passage widens briefly into a low alcove. Faded markings cover the walls, their meaning long forgotten.");
+            Console.WriteLine("The passage widens briefly into a low alcove.");
+            Console.WriteLine("Faded markings cover the walls, their meaning long forgotten.");
             Console.ForegroundColor = ConsoleColor.White;
 
-            Console.WriteLine("What do you do?");
-            Console.WriteLine("1. Go East.");
-            Console.WriteLine("2. Go West.");
-            string input = Console.ReadLine();
-
             while (true)
-            { 
-                 if (input == "1")
+            {
+                Console.WriteLine();
+                Console.WriteLine("What do you do?");
+                Console.WriteLine("1. Go East.");
+                Console.WriteLine("2. Go West.");
+                string input = Console.ReadLine();
+
+                if (input == "1")
                 {
-                    Room_01_01 room_01_01 = new Room_01_01();
-                    room_01_01.room_01_01();
+                    // Move East → Room_01_01
+                    Room_01_01 nextRoom = new Room_01_01();
+                    nextRoom.Initialize(player, turnManager);
+                    nextRoom.EnterRoom();
+                    break;
                 }
-                    else if (input == "2")
+                else if (input == "2")
                 {
-                    Room_01_03 room_01_03 = new Room_01_03();
-                    room_01_03.room_01_03();
+                    // Move West → Room_01_03
+                    Room_01_03 nextRoom = new Room_01_03();
+                    nextRoom.Initialize(player, turnManager);
+                    nextRoom.EnterRoom();
+                    break;
                 }
                 else
                 {
                     Console.WriteLine("Can not be done!");
-                    return;
                 }
             }
         }

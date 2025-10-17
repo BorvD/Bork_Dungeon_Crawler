@@ -1,12 +1,18 @@
-﻿using System;
+﻿using Bork_Dungeon_Crawler.Monsters;
+using Bork_Dungeon_Crawler.Rooms;
+using System;
+using System.Numerics;
 
-public class Room_01_00
+public class Room_01_00 : BaseRoom
 {
-    public void room_01_00()
+    public override void EnterRoom()
     {
+
+        turnManager.CheckTurn(() => EnterRoom());
+
         Console.Clear();
         Console.WriteLine("------------------------------------------------------");
-        Console.ForegroundColor = ConsoleColor.DarkRed;
+         Console.ForegroundColor = ConsoleColor.DarkRed;
         Console.WriteLine("The stone steps groan beneath your boots as you descend...");
         Console.WriteLine("Each one feels colder than the last, slick with moisture from the depths below.");
         Console.WriteLine("At the bottom waits a heavy iron door — its surface scarred by claws or time.");
@@ -23,6 +29,7 @@ public class Room_01_00
 
         while (true)
         {
+            Console.WriteLine();
             Console.WriteLine("What do you do?");
             Console.WriteLine("1. Go South.");
             Console.WriteLine("2. Go North.");
@@ -31,9 +38,9 @@ public class Room_01_00
             if (input == "1")
             {
                 Room_01_01 room0101 = new Room_01_01();
-                room0101.room_01_01();
+                room0101.Initialize(player, turnManager);
+                room0101.EnterRoom();
                 break;
-
             }
             else if (input == "2")
             {

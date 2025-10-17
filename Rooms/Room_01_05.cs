@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Bork_Dungeon_Crawler.Rooms
 {
-    internal class Room_01_05
+    public class Room_01_05 : BaseRoom
     {
-        public void room_01_05()
+        public override void EnterRoom()
         {
+            
+
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("You open a narrow door leading into a cramped side room.");
@@ -32,33 +34,26 @@ namespace Bork_Dungeon_Crawler.Rooms
 
             while (true)
             {
+                Console.WriteLine();
                 Console.WriteLine("What do you do?");
                 Console.WriteLine("1. Attack.");
                 Console.WriteLine("2. Run.");
                 Console.WriteLine("3. Search Room.");
                 string input = Console.ReadLine();
 
-                if (input == null)
+                if (input == "1")
                 {
-                    Console.WriteLine("Can not be done!");
-                    return;
-                }
-                else if (input == "1")
-                {
-                    // Combat sequence would go here
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("You strike at the little imp!");
-                    // Placeholder for combat outcome
                     Console.WriteLine("After a brief struggle, you manage to subdue the imp. It collapses to the ground, whimpering softly.");
                     Console.ForegroundColor = ConsoleColor.White;
-                    continue;
                 }
                 else if (input == "2")
                 {
-                    // Sneaking sequence would go here
-                    Console.WriteLine("You run away back from where you came");
+                    Console.WriteLine("You run away back from where you came.");
                     Room_01_04 room_01_04 = new Room_01_04();
-                    room_01_04.room_01_04();
+                    room_01_04.Initialize(player, turnManager);
+                    room_01_04.EnterRoom();
                     break;
                 }
                 else if (input == "3")
@@ -71,23 +66,18 @@ namespace Bork_Dungeon_Crawler.Rooms
                     Console.WriteLine("Broken shelves lean against the wall, and shattered jars crunch underfoot.");
                     Console.WriteLine("Among the debris lies a glint of metal — half-buried beneath a pile of torn cloth.");
                     Console.WriteLine();
-                    Console.WriteLine("You pull it free.");
-                    Console.WriteLine("A short sword, dull with grime but balanced and solid.");
+                    Console.WriteLine("You pull it free — a short sword, dull with grime but balanced and solid.");
                     Console.WriteLine("Its edge is chipped, yet the weight feels right in your hand.");
                     Console.WriteLine();
                     Console.WriteLine("Someone once fought with this —");
                     Console.WriteLine("and with a little care, it might serve you just as well.");
                     Console.ForegroundColor = ConsoleColor.White;
-                    continue;
                 }
                 else
                 {
                     Console.WriteLine("Can not be done!");
-                    Console.WriteLine();
-                    return;
                 }
             }
-
         }
     }
 }

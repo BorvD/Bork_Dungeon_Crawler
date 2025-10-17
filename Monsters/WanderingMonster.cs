@@ -6,41 +6,48 @@ using System.Threading.Tasks;
 
 namespace Bork_Dungeon_Crawler.Monsters
 {
-    internal class WanderingMonster
+    public class WanderingMonster
     {
-        private List<Monster> monsters = new List<Monster>();
-
-        public WanderingMonster()
+        // List of possible monsters with their descriptions and power levels from the Monster class
+        private List<(string Name, string Description, int Power)> monsters = new List<(string, string, int)>
         {
-            monsters.Add(new Monster("Zombie", "A brutish warrior that loves battle.", 2));
-            monsters.Add(new Monster("Specter", "A ghostly figure that drains life energy.", 3));
-            monsters.Add(new Monster("Imp", "A mischievous fire demon, small but dangerous.", 1));
-        }
+            ("Zombie", "Small, sneaky, and sharp-toothed.", 2),
+            ("Specter", "Ghostly and draining.", 3),
+            ("Imp", "Mischievous fire demon.", 1),
+         };
 
-        public void ShowAllMonsters()
-        {
-            Console.WriteLine("Wandering Monsters:");
-            Console.WriteLine("-------------------");
-            foreach (var monster in monsters)
-            {
-                monster.DisplayInfo();
-            }
-        }
-
-        public Monster GetRandomMonster()
-        {
-            Random rand = new Random();
-            int index = rand.Next(monsters.Count);
-            return monsters[index];
-        }
-
+        // Method to start a random encounter
         public void StartEncounter()
         {
-            ShowAllMonsters();
+            // Select a random monster
+            Random rnd = new Random();
+            var monster = monsters[rnd.Next(monsters.Count)];
 
-            Console.WriteLine("A random monster appears!");
-            Monster random = GetRandomMonster();
-            random.DisplayInfo();
+            // Display encounter message
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"A {monster.Name} appears! {monster.Description}");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            // Encinter menu of what the player can do
+            Console.WriteLine("What do you do?");
+            Console.WriteLine("1. Fight");
+            Console.WriteLine("2. Run");
+
+            // Get player choice
+            string choice = Console.ReadLine();
+
+            // What happens based on player choice in a if statement
+            if (choice == "1")
+            {
+                Console.WriteLine($"You attack the {monster.Name}!");
+                Console.WriteLine($"After a brief struggle, you defeat the creature!");
+            }
+            else
+            {
+                Console.WriteLine($"You manage to escape from the {monster.Name}...");
+            }
+
+            Console.WriteLine("The danger passes... You continue your journey.");
         }
-    }
+    }    
 }

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Bork_Dungeon_Crawler.Rooms
 {
-    internal class Room_01_14
+
+    internal class Room_01_14 : BaseRoom
     {
-        public void room_01_14()
+        public override void EnterRoom()
         {
+
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("The hallway ends at a heavy iron door, dark with rust and scorched by fire.");
@@ -48,20 +50,18 @@ namespace Bork_Dungeon_Crawler.Rooms
                 }
                 else if (input == "1")
                 {
-                    // Combat sequence would go here
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("You strike at the undead warrior!");
-                    // Placeholder for combat outcome
-                    Console.WriteLine("After a fierce battle, you emerge victorious, the undead warrior lies defeated again.");
+                    Console.WriteLine("You strike at the imps!");
+                    Console.WriteLine("After a fierce battle, you emerge victorious — the last imp falls with a hiss and a crack of flame.");
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 else if (input == "2")
                 {
-                    // Sneaking sequence would go here
-                    Console.WriteLine("You run away back from where you came");
+                    Console.WriteLine("You retreat, slipping back into the shadows of the hall.");
                     Room_01_13 room_01_13 = new Room_01_13();
-                    room_01_13.room_01_13();
+                    room_01_13.Initialize(player, turnManager);
+                    room_01_13.EnterRoom();
                     break;
                 }
                 else if (input == "3")
@@ -93,8 +93,6 @@ namespace Bork_Dungeon_Crawler.Rooms
                 else
                 {
                     Console.WriteLine("Can not be done!");
-                    Console.WriteLine();
-                    return;
                 }
             }
         }

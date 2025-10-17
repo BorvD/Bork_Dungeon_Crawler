@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Bork_Dungeon_Crawler.Rooms
 {
-    internal class Room_01_08
+    internal class Room_01_08 : BaseRoom
     {
-        public void room_01_08() 
+        public override void EnterRoom()
         {
+            turnManager.CheckTurn(() => EnterRoom());
+
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("You step into what was once a grand dining hall.");
@@ -25,36 +27,44 @@ namespace Bork_Dungeon_Crawler.Rooms
             Console.WriteLine("Somewhere among the wreckage, you think you hear the soft clink of metal — a sound too steady to be the wind.");
             Console.ForegroundColor = ConsoleColor.White;
 
-
-            Console.WriteLine("What do you do?");
-            Console.WriteLine("1. Go South.");
-            Console.WriteLine("2. Go North.");
-            Console.WriteLine("3. Go East.");
-            Console.WriteLine("4. Go West.");
-            Console.WriteLine("5. Search Room");
-            string input = Console.ReadLine();
-
             while (true)
             {
+                Console.WriteLine();
+                Console.WriteLine("What do you do?");
+                Console.WriteLine("1. Go South.");
+                Console.WriteLine("2. Go North.");
+                Console.WriteLine("3. Go East.");
+                Console.WriteLine("4. Go West.");
+                Console.WriteLine("5. Search Room");
+                string input = Console.ReadLine();
+
                 if (input == "1")
-                {                     
+                {
                     Room_01_13 room_01_13 = new Room_01_13();
-                    room_01_13.room_01_13();
+                    room_01_13.Initialize(player, turnManager);
+                    room_01_13.EnterRoom();
+                    break;
                 }
                 else if (input == "2")
                 {
                     Room_01_07 room_01_07 = new Room_01_07();
-                    room_01_07.room_01_07();
+                    room_01_07.Initialize(player, turnManager);
+                    room_01_07.EnterRoom();
+                    break;
                 }
                 else if (input == "3")
                 {
                     Room_01_11 room_01_11 = new Room_01_11();
-                    room_01_11.room_01_11();
+                    room_01_11.Initialize(player, turnManager);
+                    room_01_11.EnterRoom();
+                    break;
                 }
                 else if (input == "4")
                 {
                     Room_01_09 room_01_09 = new Room_01_09();
-                    room_01_09.room_01_09();
+                    room_01_09.Initialize(player, turnManager);
+                    room_01_09.EnterRoom();
+                    break;
                 }
                 else if (input == "5")
                 {
@@ -68,12 +78,12 @@ namespace Bork_Dungeon_Crawler.Rooms
                     Console.WriteLine("Wherever you go next, the silence feels like it's watching... and waiting.");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("------------------------------------------------------");
-                    return;
+                    continue; // stay in the room
                 }
                 else
                 {
                     Console.WriteLine("Can not be done!");
-                    return;
+                    continue;
                 }
             }
         }

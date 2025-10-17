@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Bork_Dungeon_Crawler.Rooms
 {
-    internal class Room_01_03
+    public class Room_01_03 : BaseRoom
     {
-        public void room_01_03()
+        public override void EnterRoom()
         {
+
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("The corridor opens into a cramped chamber.");
@@ -24,33 +25,29 @@ namespace Bork_Dungeon_Crawler.Rooms
 
             while (true)
             {
+                Console.WriteLine();
                 Console.WriteLine("What do you do?");
                 Console.WriteLine("1. Attack.");
                 Console.WriteLine("2. Run.");
                 Console.WriteLine("3. Search Room.");
+
                 string input = Console.ReadLine();
 
-                if (input == null)
+                if (input == "1")
                 {
-                    Console.WriteLine("Can not be done!");
-                    return;
-                }
-                else if (input == "1")
-                {
-                    // Combat sequence would go here
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("You lunge at the imp, weapon raised...");
-                    // Placeholder for combat outcome
-                    Console.WriteLine("After a fierce battle, you emerge victorious, the imp lies defeated.");
+                    Console.WriteLine("After a fierce battle, you emerge victorious — the imp lies defeated.");
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 else if (input == "2")
                 {
-                    // Sneaking sequence would go here
-                    Console.WriteLine("You run away back from where you came");
-                    Room_01_02 room_01_02 = new Room_01_02();
-                    room_01_02.room_01_02();
+                    Console.WriteLine("You run away back from where you came.");
+
+                    Room_01_02 previousRoom = new Room_01_02();
+                    previousRoom.Initialize(player, turnManager);
+                    previousRoom.EnterRoom();
                     break;
                 }
                 else if (input == "3")

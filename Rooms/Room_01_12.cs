@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Bork_Dungeon_Crawler.Rooms
 {
-    internal class Room_01_12
+    internal class Room_01_12 : BaseRoom
     {
-        public void room_01_12()
+        public override void EnterRoom()
         {
+
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("You step into what was once a kitchen.");
@@ -46,20 +47,18 @@ namespace Bork_Dungeon_Crawler.Rooms
                 }
                 else if (input == "1")
                 {
-                    // Combat sequence would go here
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("You strike at the imps");
-                    // Placeholder for combat outcome
                     Console.WriteLine("After a brief skirmish, you manage to defeat the imps, leaving them sprawled on the floor, twitching.");
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 else if (input == "2")
                 {
-                    // Sneaking sequence would go here
                     Console.WriteLine("You run away back from where you came");
                     Room_01_11 room_01_11 = new Room_01_11();
-                    room_01_11.room_01_11();
+                    room_01_11.Initialize(player, turnManager);
+                    room_01_11.EnterRoom();
                     break;
                 }
                 else if (input == "3")

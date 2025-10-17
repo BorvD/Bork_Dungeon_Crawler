@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Bork_Dungeon_Crawler.Rooms
 {
-    internal class Room_01_10
+    internal class Room_01_10 : BaseRoom
     {
-        public void room_01_10()
+        public override void EnterRoom()
         {
+
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("You step into the sleeping quarters.");
@@ -46,29 +47,23 @@ namespace Bork_Dungeon_Crawler.Rooms
                 Console.WriteLine("1. Attack.");
                 Console.WriteLine("2. Run.");
                 Console.WriteLine("3. Search Room.");
+
                 string input = Console.ReadLine();
 
-                if (input == null)
+                if (input == "1")
                 {
-                    Console.WriteLine("Can not be done!");
-                    return;
-                }
-                else if (input == "1")
-                {
-                    // Combat sequence would go here
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("You strike at the undead warrior!");
-                    // Placeholder for combat outcome
                     Console.WriteLine("After a fierce battle, you emerge victorious, the undead warrior lies defeated again.");
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 else if (input == "2")
                 {
-                    // Sneaking sequence would go here
                     Console.WriteLine("You run away back from where you came");
                     Room_01_09 room_01_09 = new Room_01_09();
-                    room_01_09.room_01_09();
+                    room_01_09.Initialize(player, turnManager);
+                    room_01_09.EnterRoom();
                     break;
                 }
                 else if (input == "3")

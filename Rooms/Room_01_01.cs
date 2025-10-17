@@ -1,10 +1,17 @@
-﻿using Bork_Dungeon_Crawler.Rooms;
+﻿using Bork_Dungeon_Crawler.Monsters;
+using Bork_Dungeon_Crawler.Rooms;
 using System;
+using System.Numerics;
 
-public class Room_01_01
+public class Room_01_01 : BaseRoom
 {
-    public void room_01_01()
+    // Skriver över EnterRoom-metoden för detta specifika rum
+    public override void EnterRoom()
     {
+        // Anropar TurnManager för att kolla om wandering monster skall triggas
+        turnManager.CheckTurn(() => EnterRoom());
+
+        // Rummets beskrivning
         Console.WriteLine("------------------------------------------------------");
         Console.ForegroundColor = ConsoleColor.DarkRed;
         Console.WriteLine("You step through the doorway and into a long, shadow-drenched hall.");
@@ -20,20 +27,25 @@ public class Room_01_01
         Console.WriteLine("Whatever fought here, whatever died here... it might still be close.");
         Console.ForegroundColor = ConsoleColor.White;
 
+        // En while-loop för att hantera spelarens val i rummet
         while (true)
         {
+            // Frågar spelaren vilket val de vill göra
+            Console.WriteLine();
             Console.WriteLine("What do you do?");
             Console.WriteLine("1. Go South.");
             Console.WriteLine("2. Go North.");
             Console.WriteLine("3. Go East.");
             Console.WriteLine("4. Go West.");
-            Console.WriteLine("5. Search Room");
+            Console.WriteLine("5. Search Room"); 
             string input = Console.ReadLine();
 
+            
             if (input == "1")
             {
                 Room_01_06 room0106 = new Room_01_06();
-                room0106.room_01_06();
+                room0106.Initialize(player, turnManager);
+                room0106.EnterRoom();
                 break;
             }
             else if (input == "2")
@@ -41,18 +53,21 @@ public class Room_01_01
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("The door has locked behind you. Only way is forward!");
                 Console.ForegroundColor = ConsoleColor.White;
-                continue;
             }
             else if (input == "3")
             {
-                Room_01_04 room_01_04 = new Room_01_04();
-                room_01_04.room_01_04();
+
+                Room_01_04 room0104 = new Room_01_04();
+                room0104.Initialize(player, turnManager);
+                room0104.EnterRoom();
                 break;
             }
             else if (input == "4")
             {
-                Room_01_02 room_01_02 = new Room_01_02();
-                room_01_02.room_01_02();
+
+                Room_01_02 room0102 = new Room_01_02();
+                room0102.Initialize(player, turnManager);
+                room0102.EnterRoom();
                 break;
             }
             else if (input == "5")
@@ -64,16 +79,12 @@ public class Room_01_01
                 Console.WriteLine("One trail disappearing into the east corridor, the other vanishing down the west passage.");
                 Console.WriteLine();
                 Console.WriteLine("Whoever fought here... someone survived. Or something did.");
-                Console.WriteLine("------------------------------------------------------");
-                continue;
             }
             else
             {
                 Console.WriteLine("Can not be done!");
                 Console.WriteLine();
-                continue;
             }
-
         }
     }
 }

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Bork_Dungeon_Crawler.Rooms
 {
-    internal class Room_01_11
+    internal class Room_01_11 : BaseRoom
     {
-        public void room_01_11()
+        public override void EnterRoom()
         {
+            turnManager?.CheckTurn(() => EnterRoom());
+
             Console.WriteLine("------------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("The room beyond is small and cramped — shelves line the walls, stacked with broken plates and moldy bread.");
@@ -25,12 +27,16 @@ namespace Bork_Dungeon_Crawler.Rooms
                 if (input == "1")
                 {
                     Room_01_12 room_01_12 = new Room_01_12();
-                    room_01_12.room_01_12();
+                    room_01_12.Initialize(player, turnManager);
+                    room_01_12.EnterRoom();
+                    break;
                 }
                 else if (input == "2")
                 {
                     Room_01_08 room_01_08 = new Room_01_08();
-                    room_01_08.room_01_08();
+                    room_01_08.Initialize(player, turnManager);
+                    room_01_08.EnterRoom();
+                    break;
                 }
                 else
                 {
