@@ -28,7 +28,8 @@ namespace Bork_Dungeon_Crawler.Monsters
             player.EnterRoom();
 
             // Beräknar den sista siffran i spelarens tur-räknare
-            int lastDigit = (int)(player.TurnCounter % 10);
+            char lastDigitChar = player.TurnCounter.ToString().Last();
+            int lastDigit = Convert.ToInt32(lastDigitChar.ToString());
 
             // Om den sista siffran är 0 eller 5, så anropas en wandering monster
             if (lastDigit == 0 || lastDigit == 5)
