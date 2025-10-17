@@ -21,7 +21,7 @@ namespace Bork_Dungeon_Crawler.Monsters
             this.wanderingMonster = wanderingMonster;
         }
 
-        // Metod för att kolla om en vandrande monster-encounter ska triggas baserat på spelarens tur-räknare
+        // Metod för att kolla om en vandrande monster-encounter ska triggas baserat på spelarens turn counter. (Action) sparar metoden som hände innan och Invoke gör att metoden (rummet) spelas upp efteråt§
         public void CheckTurn(Action resumeRoom)
         {
             // Anropar spelarens EnterRoom-metod för att öka tur-räknaren
