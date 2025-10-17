@@ -78,7 +78,7 @@ namespace Bork_Dungeon_Crawler.Rooms
                     Console.WriteLine("Wherever you go next, the silence feels like it's watching... and waiting.");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("------------------------------------------------------");
-                    continue; // stay in the room
+                    continue;
                 }
                 else
                 {
