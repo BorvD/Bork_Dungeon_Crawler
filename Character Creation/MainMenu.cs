@@ -9,11 +9,12 @@ namespace Bork_Dungeon_Crawler
     // Main menu for the application
     internal class MainMenu
     {
+       // Keeps the character in memory
+       private Character character = null!;
         // Method to display and handle the main menu
         public void mainMenu()
         {
-            // Starts the main menu loop
-            Character character = null!;
+            
             // Create instances of Register and Login classes
             var register = new Register();
             // Create an instance of the Login class

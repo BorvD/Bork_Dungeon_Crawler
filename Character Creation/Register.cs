@@ -55,10 +55,10 @@ namespace Bork_Dungeon_Crawler
             // Initialize reason as empty
             reason = "";
             // Check password length
-            if (password.Length < 8) 
+            if (password.Length < 4) 
             {
-                // Need at least 8 characters
-                reason = "At least 8 characters."; return false; 
+                // Need at least 4 characters
+                reason = "At least 4 characters."; return false; 
             }
             // Check for uppercase letter
             if (!password.Any(char.IsUpper)) 
