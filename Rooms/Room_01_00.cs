@@ -35,6 +35,8 @@ public class Room_01_00 : BaseRoom
             Console.WriteLine("2. Go North.");
             string input = Console.ReadLine();
 
+            checkForOverlay(input, () => enterRoom());
+
             if (input == "1")
             {
                 Room_01_01 room0101 = new Room_01_01();

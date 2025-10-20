@@ -28,7 +28,6 @@ namespace Bork_Dungeon_Crawler.Rooms
 
                 if (input == "1")
                 {
-                    // Move East → Room_01_01
                     Room_01_01 nextRoom = new Room_01_01();
                     nextRoom.initialize(player, turnManager);
                     nextRoom.enterRoom();
@@ -36,7 +35,6 @@ namespace Bork_Dungeon_Crawler.Rooms
                 }
                 else if (input == "2")
                 {
-                    // Move West → Room_01_03
                     Room_01_03 nextRoom = new Room_01_03();
                     nextRoom.initialize(player, turnManager);
                     nextRoom.enterRoom();

@@ -24,5 +24,70 @@ namespace Bork_Dungeon_Crawler.Rooms
 
         // Abstrakt metod som måste implementeras i alla ärvda rumsklasser
         public abstract void enterRoom();
+
+        protected void checkForOverlay(string input, Action onReturn)
+        {
+            if (input == "0")
+            {
+                showOverlayMenu(onReturn);
+            }
+        }
+
+        private void showOverlayMenu(Action onReturn)
+        {
+            bool stayInMenu = true;
+
+            while (stayInMenu)
+            {
+                Console.WriteLine("1. Check character");
+                Console.WriteLine("2. Ask AI");
+                Console.WriteLine("6. Exit game");
+                Console.WriteLine("0. Return to game");
+
+                string input = Console.ReadLine();
+
+                switch (input)
+                {
+                    case "1":
+                        characterInfo();
+                        break;
+
+                    case "2":
+                        askAI();
+                        break;
+
+                    case "6":
+                        Environment.Exit(0);
+                        break;
+
+                    case "0":
+                        stayInMenu = false;
+                        onReturn?.Invoke();
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid choice.");
+                        break;
+                }
+
+            }
+        }
+
+        private void characterInfo()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("Character Info");
+            Console.WriteLine($"Name: {player.Name}");
+            Console.WriteLine($"Power Level: {player.PowerLevel}");
+            Console.WriteLine($"Turns: {player.TurnCounter}");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        private void askAI()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("What the AI will say");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
     }
 }

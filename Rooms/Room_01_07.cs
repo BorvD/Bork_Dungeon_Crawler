@@ -11,7 +11,6 @@ namespace Bork_Dungeon_Crawler.Rooms
     {
         public override void enterRoom()
         {
-            // Optional — safety check in case something didn't initialize
             turnManager.checkTurn(() => enterRoom());
 
             Console.WriteLine("------------------------------------------------------");
@@ -31,14 +30,14 @@ namespace Bork_Dungeon_Crawler.Rooms
                 {
                     Room_01_08 room_01_08 = new Room_01_08();
                     room_01_08.initialize(player, turnManager);
-                    room_01_08.enterRoom();  // ✅ use EnterRoom()
+                    room_01_08.enterRoom();
                     break;
                 }
                 else if (input == "2")
                 {
                     Room_01_06 room_01_06 = new Room_01_06();
                     room_01_06.initialize(player, turnManager);
-                    room_01_06.enterRoom();  // ✅ use EnterRoom()
+                    room_01_06.enterRoom();
                     break;
                 }
                 else
