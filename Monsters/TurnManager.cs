@@ -14,11 +14,11 @@ namespace Bork_Dungeon_Crawler.Monsters
         private WanderingMonster wanderingMonster;
 
         // Konstruktor för TurnManager som tar emot en TestCharacter och en WanderingMonster
-        public TurnManager(TestCharacter player, WanderingMonster wanderingMonster)
+        public TurnManager(TestCharacter pla, WanderingMonster wMonster)
         {
             // Sätter de privata fälten till de mottagna objekten
-            this.player = player;
-            this.wanderingMonster = wanderingMonster;
+            player = pla;
+            wanderingMonster = wMonster;
         }
 
         // Metod för att kolla om en vandrande monster-encounter ska triggas baserat på spelarens turn counter. (Action) sparar metoden som hände innan och Invoke gör att metoden (rummet) spelas upp efteråt§

@@ -15,11 +15,11 @@ namespace Bork_Dungeon_Crawler.Rooms
         protected TurnManager turnManager;
 
         //Metod för att starta rummet med spelare och turhanterare
-        public void initialize(TestCharacter pla, TurnManager tM)
+        public void initialize(TestCharacter pla, TurnManager turnM)
         {
             // Referencr till spelare och turhanterare
             player = pla;
-            turnManager = tM;
+            turnManager = turnM;
         }
 
         // Abstrakt metod som måste implementeras i alla ärvda rumsklasser
