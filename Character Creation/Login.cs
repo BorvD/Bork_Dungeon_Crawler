@@ -6,71 +6,67 @@ using System.Threading.Tasks;
 
 namespace Bork_Dungeon_Crawler
 {
-    
+
     internal class Login
     {
-        // Method to handle user sign-in with 2FA
+        // Method for signing in an existing character with simple 2FA check
         public void signIn(Character character)
         {
-            // if statement to check if character is null
+            // Check if a character has been registered first
             if (character == null)
             {
-                // Print message and return if no character is found
                 Console.WriteLine("No character found!");
-                return;
+                return; // Exit if there’s no character to log in
             }
 
-            // Asks for character
+            // Ask user for character name
             Console.Write("Enter character name: ");
-            // Read character name from console
-            string name = Console.ReadLine() ?? "";
+            string name = Console.ReadLine();
 
-            // Asks for password
+            // Ask user for password
             Console.Write("Enter password: ");
-            // Read password from console
-            string password = Console.ReadLine() ?? "";
+            string password = Console.ReadLine();
 
-            // Validate name and password
+            // Check if entered name and password match the saved character
             if (name != character.Username || password != character.Password)
             {
-                // Print error message for incorrect credentials
-                Console.WriteLine("Incorrect character name name or password!");
-                return;
+                Console.WriteLine("Incorrect character name or password!");
+                return; // Stop if login info is wrong
             }
 
-            // Generate 2FA code
+            // Generate a random 2FA code for extra verification
             character.Pending2FACode = generate2FACode();
 
-            // Simulate sending 2FA code to contact
+            // Simulate sending the code to the user's contact info
             Console.WriteLine($"(2FA code sent to {character.Contact})");
-            // Shows the 2FA code in the console that the user should enter
-            Console.WriteLine($"Enter 2FA code: {character.Pending2FACode}]");
 
-            //Asks for 2FA code
+            // For testing: show the 2FA code directly in console
+            Console.WriteLine($"Enter 2FA code: {character.Pending2FACode}");
+
+            // Ask user to type in the 2FA code
             Console.Write("Enter 2FA code: ");
-            // Read 2FA code from console
-            string entered = Console.ReadLine() ?? "";
+            string entered = Console.ReadLine();
 
-            // Validate 2FA code
+            // Compare the entered code with the generated one
             if (entered == character.Pending2FACode)
             {
-                // Print welcome message on successful login
+                // Login successful
                 Console.WriteLine($"Welcome, {character.Username}!");
+                // Clear the code once used
                 character.Pending2FACode = "";
             }
-            // Handle incorrect 2FA code
             else
             {
-                // Print error message for wrong 2FA code
+                // 2FA failed
                 Console.WriteLine("Wrong 2FA code!");
             }
         }
 
-        // Method to generate a random 2FA code
+        // Method that creates a random 6-digit code for 2FA
         private string generate2FACode()
         {
-            // Generate a random 6-digit code
             var rnd = new Random();
+            // Random number between 100000–999999 (6 digits)
             return rnd.Next(100000, 999999).ToString();
         }
     }

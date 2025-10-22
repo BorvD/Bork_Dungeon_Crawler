@@ -8,77 +8,75 @@ namespace Bork_Dungeon_Crawler
 {
     internal class Register
     {
-        // Method to create a new character with validation
         public Character createCharacter()
         {
-            // Asks for character name
+            // Ask user to enter a character name
             Console.Write("Enter character name: ");
-            // Read character name from console
-            string username = Console.ReadLine() ?? "";
+            string username = Console.ReadLine();
 
-            // Asks for password
+            // Ask user to enter a password
             Console.Write("Enter password: ");
-            // Read password from console
-            string password = Console.ReadLine() ?? "";
+            string password = Console.ReadLine();
 
-            // Validate password strength
+            // Check if password meets strength requirements
             if (!validatePassword(password, out string reason))
             {
-                // Print reason for weak password
+                // If password is weak, print reason and stop
                 Console.WriteLine($"Weak password: {reason}");
-                return null!;
+                return null;
             }
 
-            // Asks for email or phone for 2FA
+            // Ask user to enter email or phone number for 2FA
             Console.Write("Enter email or phone (for 2FA): ");
-            // Read contact info from console
-            string contact = Console.ReadLine() ?? "";
+            string contact = Console.ReadLine();
 
-            // Create and return new character
+            // Create a new character object with entered details
             var character = new Character
             {
-                // Set properties for the new character
                 Username = username,
                 Password = password,
                 Contact = contact
             };
 
-            // Print success message
-            Console.WriteLine($"Welcome: {character.Username}' registered successfully!");
-            // Return the created character
-            return character;
+            // Confirm successful registration
+            Console.WriteLine($"Welcome, {character.Username}! Registered successfully.");
+            return character; // Return the new character
         }
 
-        // Method to validate password strength
+        // Checks that a password follows basic security rules
         private bool validatePassword(string password, out string reason)
         {
-            // Initialize reason as empty
-            reason = "";
-            // Check password length
-            if (password.Length < 4) 
+            reason = ""; // Default reason is empty
+
+            // Check for minimum length
+            if (password.Length < 4)
             {
-                // Need at least 4 characters
-                reason = "At least 4 characters."; return false; 
+                reason = "At least 4 characters required.";
+                return false;
             }
+
             // Check for uppercase letter
-            if (!password.Any(char.IsUpper)) 
+            if (!password.Any(char.IsUpper))
             {
-                // Need at least one uppercase letter
-                reason = "Must contain an uppercase letter."; return false; 
+                reason = "Must contain an uppercase letter.";
+                return false;
             }
-            // Check for digit
-            if (!password.Any(char.IsDigit)) 
+
+            // Check for number
+            if (!password.Any(char.IsDigit))
             {
-                // Need at least one number
-                reason = "Must contain a number."; return false; 
+                reason = "Must contain a number.";
+                return false;
             }
-            // Check for special character
-            if (!password.Any(ch => "Must contain a special character".Contains(ch))) 
+
+            // Check for at least one special character
+            if (!password.Any(ch => "!#¤%&".Contains(ch)))
             {
-                // Need at least one special character
-                reason = "#¤%&/()"; return false; 
+                reason = "Must contain a special character.";
+                return false;
             }
-            // Password is strong
+
+            // If all checks passed, password is valid
             return true;
         }
     }

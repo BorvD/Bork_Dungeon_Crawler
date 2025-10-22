@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bork_Dungeon_Crawler
+namespace Bork_Dungeon_Crawler.Menu
 {
     // Main menu for the application
     internal class MainMenu
