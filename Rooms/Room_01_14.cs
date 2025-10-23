@@ -43,6 +43,8 @@ namespace Bork_Dungeon_Crawler.Rooms
                 Console.WriteLine("4. Unlock the door");
                 string input = Console.ReadLine();
 
+                checkForOverlay(input, () => enterRoom());
+
                 if (input == null)
                 {
                     Console.WriteLine("Can not be done!");

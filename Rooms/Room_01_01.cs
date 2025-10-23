@@ -40,7 +40,8 @@ public class Room_01_01 : BaseRoom
             Console.WriteLine("5. Search Room"); 
             string input = Console.ReadLine();
 
-            
+            checkForOverlay(input, () => enterRoom());
+
             if (input == "1")
             {
                 Room_01_06 room0106 = new Room_01_06();

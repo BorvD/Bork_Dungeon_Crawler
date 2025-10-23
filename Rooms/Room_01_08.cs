@@ -38,6 +38,8 @@ namespace Bork_Dungeon_Crawler.Rooms
                 Console.WriteLine("5. Search Room");
                 string input = Console.ReadLine();
 
+                checkForOverlay(input, () => enterRoom());
+
                 if (input == "1")
                 {
                     Room_01_13 room_01_13 = new Room_01_13();

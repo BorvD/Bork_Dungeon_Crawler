@@ -26,6 +26,8 @@ namespace Bork_Dungeon_Crawler.Rooms
                 Console.WriteLine("2. Go North.");
                 string input = Console.ReadLine();
 
+                checkForOverlay(input, () => enterRoom());
+
                 if (input == "1")
                 {
                     Room_01_07 room_01_07 = new Room_01_07();

@@ -18,10 +18,10 @@ namespace Bork_Dungeon_Crawler
             Console.Write("Enter password: ");
             string password = Console.ReadLine();
 
-            // Check if password meets strength requirements
+            // Check if password meets requirements
             if (!validatePassword(password, out string reason))
             {
-                // If password is weak, print reason and stop
+                // If password is does not meet the requierments
                 Console.WriteLine($"Weak password: {reason}");
                 return null;
             }
@@ -43,7 +43,7 @@ namespace Bork_Dungeon_Crawler
             return character; // Return the new character
         }
 
-        // Checks that a password follows basic security rules
+        // Checks that password follows the rules
         private bool validatePassword(string password, out string reason)
         {
             reason = ""; // Default reason is empty
@@ -55,7 +55,7 @@ namespace Bork_Dungeon_Crawler
                 return false;
             }
 
-            // Check for uppercase letter
+            // Check for uppercase letter ! Flips true false
             if (!password.Any(char.IsUpper))
             {
                 reason = "Must contain an uppercase letter.";

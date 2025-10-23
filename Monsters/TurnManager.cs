@@ -32,7 +32,7 @@ namespace Bork_Dungeon_Crawler.Monsters
             int lastDigit = Convert.ToInt32(lastDigitChar.ToString());
 
             // Om den sista siffran är 0 eller 5, så anropas en wandering monster
-            if (lastDigit == 0 || lastDigit == 5)
+            if (lastDigit == 0 || lastDigit == 5)  
             {
                 // Kuslig medelande till spelaren
                 Console.ForegroundColor = ConsoleColor.DarkRed;

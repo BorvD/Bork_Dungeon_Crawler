@@ -9,14 +9,15 @@ namespace Bork_Dungeon_Crawler
 
     internal class Login
     {
-        // Method for signing in an existing character with simple 2FA check
+        // Method for signing in
         public void signIn(Character character)
         {
             // Check if a character has been registered first
             if (character == null)
             {
+                // If character is not found
                 Console.WriteLine("No character found!");
-                return; // Exit if there’s no character to log in
+                return; 
             }
 
             // Ask user for character name
@@ -30,11 +31,12 @@ namespace Bork_Dungeon_Crawler
             // Check if entered name and password match the saved character
             if (name != character.Username || password != character.Password)
             {
+                // If somthing is wrong
                 Console.WriteLine("Incorrect character name or password!");
-                return; // Stop if login info is wrong
+                return; 
             }
 
-            // Generate a random 2FA code for extra verification
+            // Method to generate a random 2FA code
             character.Pending2FACode = generate2FACode();
 
             // Simulate sending the code to the user's contact info

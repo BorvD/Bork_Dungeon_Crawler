@@ -41,6 +41,8 @@ namespace Bork_Dungeon_Crawler.Rooms
                 Console.WriteLine("3. Search Room.");
                 string input = Console.ReadLine();
 
+                checkForOverlay(input, () => enterRoom());
+
                 if (input == "1")
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;

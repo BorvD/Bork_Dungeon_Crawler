@@ -23,8 +23,9 @@ namespace Bork_Dungeon_Crawler.Rooms
                 Console.WriteLine("What do you do?");
                 Console.WriteLine("1. Go East.");
                 Console.WriteLine("2. Go West.");
-
                 string input = Console.ReadLine();
+
+                checkForOverlay(input, () => enterRoom());
 
                 if (input == "1")
                 {
