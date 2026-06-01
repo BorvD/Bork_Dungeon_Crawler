@@ -1,0 +1,9 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Bork_Dungeon_Crawler_API",
+    "version": "1.0"
+  },
+  "paths": { },
+  "components": { }
+}
