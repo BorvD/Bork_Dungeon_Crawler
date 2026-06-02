@@ -390,6 +390,8 @@ namespace Bork_Dungeon_Crawler_API.Services
         {
             var currentRoom = GetCurrentRoom(characterId);
 
+            direction = direction.ToLower();
+
             if (!_characterTurns.ContainsKey(characterId))
                 _characterTurns[characterId] = 0;
 

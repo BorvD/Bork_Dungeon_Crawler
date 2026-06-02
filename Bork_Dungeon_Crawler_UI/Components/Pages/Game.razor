@@ -1,0 +1,104 @@
+﻿@page "/game"
+@rendermode InteractiveServer
+@inject HttpClient Http
+
+<h3>Dungeon</h3>
+
+@if (room == null)
+{
+    <p>Laddar dungeon...</p>
+}
+else
+{
+    <h4>@room.Title</h4>
+
+    @foreach (var line in room.Description)
+    {
+        <p>@line</p>
+    }
+
+    <hr />
+
+    @if (room.Encounter != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Encounter!</strong>
+            <p>@room.Encounter.Message</p>
+        </div>
+    }
+
+    <hr />
+
+    @foreach (var option in room.Options)
+    {
+        <button class="btn btn-primary m-1" @onclick="() => Move(option)">
+            @option
+        </button>
+    }
+}
+
+@code {
+    private RoomResponse? room;
+
+    private int characterId = 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadRoom();
+    }
+
+    // Hämta första rummet
+    private async Task LoadRoom()
+    {
+        room = await Http.GetFromJsonAsync<RoomResponse>(
+            $"api/dungeon/current?characterId={characterId}"
+        );
+    }
+
+    // Flytta spelaren
+    private async Task Move(string direction)
+    {
+        Console.WriteLine($"CLICKED: {direction}");
+
+        var response = await Http.PostAsJsonAsync(
+            "api/dungeon/move",
+            new
+            {
+                characterId = characterId,
+                direction = direction
+            }
+        );
+
+        Console.WriteLine($"STATUS: {response.StatusCode}");
+
+        var body = await response.Content.ReadAsStringAsync();
+        Console.WriteLine($"BODY: {body}");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            Console.WriteLine($"Move failed: {response.StatusCode}");
+            return;
+        }
+
+        room = await response.Content.ReadFromJsonAsync<RoomResponse>();
+    }
+
+    // Matchar API exakt
+    private class RoomResponse
+    {
+        public int RoomId { get; set; }
+        public string Title { get; set; } = "";
+        public List<string> Description { get; set; } = new();
+        public List<string> Options { get; set; } = new();
+
+        public MonsterEventDto? Encounter { get; set; }
+    }
+
+    private class MonsterEventDto
+    {
+        public string MonsterName { get; set; } = "";
+        public string Description { get; set; } = "";
+        public int PowerLevel { get; set; }
+        public string Message { get; set; } = "";
+    }
+}
