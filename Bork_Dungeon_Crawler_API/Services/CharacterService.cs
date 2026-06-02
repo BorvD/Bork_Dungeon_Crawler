@@ -46,6 +46,25 @@ namespace Bork_Dungeon_Crawler_API.Services
             return character;
         }
 
+        // Skapar karaktär kopplad till User
+        public async Task<Character> CreateForUser(int userId, string username)
+        {
+            var character = new Character
+            {
+                Username = username,
+                UserId = userId,
+                PowerLevel = 1,
+                TurnCounter = 0,
+                CreatedAt = DateTime.UtcNow,
+                CurrentRoomId = 100
+            };
+
+            _context.Characters.Add(character);
+            await _context.SaveChangesAsync();
+
+            return character;
+        }
+
         // TA BORT CHARACTE
         public async Task<bool> Delete(int id)
         {
@@ -64,6 +83,13 @@ namespace Bork_Dungeon_Crawler_API.Services
 
             // Bekräfta att det lyckades
             return true;
+        }
+        // Visa alla karaktärer som tillhör inloggad user
+        public async Task<List<Character>> GetByUserId(int userId)
+        {
+            return await _context.Characters
+                .Where(c => c.UserId == userId)
+                .ToListAsync();
         }
     }
 }

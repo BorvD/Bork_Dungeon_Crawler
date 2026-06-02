@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.3.11512.155 d18.3
+VisualStudioVersion = 18.3.11512.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bork_Dungeon_Crawler", "Bork_Dungeon_Crawler.csproj", "{B3D9F442-48BB-4B76-AE2F-B6C6151148A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bork_Dungeon_Crawler", "Bork_Dungeon_Crawler\Bork_Dungeon_Crawler.csproj", "{D07411DF-7C8E-549E-3FED-38D2D74A5D1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bork_Dungeon_Crawler_API", "..\Bork_Dungeon_Crawler_API\Bork_Dungeon_Crawler_API.csproj", "{BE89F66F-AED8-43CB-9711-414BFB6BECFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bork_Dungeon_Crawler_API", "Bork_Dungeon_Crawler_API\Bork_Dungeon_Crawler_API.csproj", "{B78A8C43-67AB-FAA7-BD58-E2C3AE32F59E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B3D9F442-48BB-4B76-AE2F-B6C6151148A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3D9F442-48BB-4B76-AE2F-B6C6151148A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3D9F442-48BB-4B76-AE2F-B6C6151148A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3D9F442-48BB-4B76-AE2F-B6C6151148A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BE89F66F-AED8-43CB-9711-414BFB6BECFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE89F66F-AED8-43CB-9711-414BFB6BECFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE89F66F-AED8-43CB-9711-414BFB6BECFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE89F66F-AED8-43CB-9711-414BFB6BECFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D07411DF-7C8E-549E-3FED-38D2D74A5D1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D07411DF-7C8E-549E-3FED-38D2D74A5D1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D07411DF-7C8E-549E-3FED-38D2D74A5D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D07411DF-7C8E-549E-3FED-38D2D74A5D1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B78A8C43-67AB-FAA7-BD58-E2C3AE32F59E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78A8C43-67AB-FAA7-BD58-E2C3AE32F59E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78A8C43-67AB-FAA7-BD58-E2C3AE32F59E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78A8C43-67AB-FAA7-BD58-E2C3AE32F59E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -35,5 +35,10 @@
         // Will be used later for stats, achievements or inventory systems
         public ICollection<Monster> MonstersDefeated { get; set; }
             = new List<Monster>();
+
+        public int UserId { get; set; }
+
+        // Navigation property (EF relation)
+        public AppUser User { get; set; } = null!;
     }
 }
